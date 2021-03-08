@@ -1,0 +1,61 @@
+﻿@using DEMO_KTLT_2021_01
+@using DEMO_KTLT_2021_01.BusinessServices
+@using DEMO_KTLT_2021_01.ENTITIES
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        PHANSO p1, p2, kq;
+        p1.TuSo = int.Parse(Request["Tuso1"]);
+        p1.MauSo = int.Parse(Request["Mauso1"]);
+        p2.TuSo = int.Parse(Request["Tuso2"]);
+        p2.MauSo = int.Parse(Request["Mauso2"]);
+        kq = XL_PHANSO.CongPS(p1, p2);
+
+        Chuoi = "Ban vua nhap " + kq.TuSo + "/" + kq.MauSo;
+    }
+
+
+}
+
+@{ var price = 50;}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/MainPage.cshtml" method="post">
+        <label for="Tuso1">Tu so 1:</label><br />
+        <input type="text"  name="Tuso1" value="2" /><br />
+        <label for="Mauso1">Mau so 1:</label><br />
+        <input type="text"  name="Mauso1" value="3" /><br /><br />
+
+        <label for="Tuso2">Tu so 2:</label><br />
+        <input type="text"  name="Tuso2" value="2" /><br />
+        <label for="Mauso2">Mau so 2:</label><br />
+        <input type="text"  name="Mauso2" value="3" /><br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+    @Chuoi
+
+    @if (price > 30)
+    {
+        <p>The price is too high</p>
+    }
+    else
+    {
+        <p>The price is OK</p>
+    }
+    @{ 
+        var i = 0;
+        while (i < 5)
+        {
+            i += 1;
+            <p>Line @i</p>
+        }
+    }
+
+</body>
+</html>

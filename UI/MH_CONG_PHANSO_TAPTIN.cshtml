@@ -1,0 +1,25 @@
+﻿// Đã bỏ namespace gốc nhưng vẫn chạy đúng
+@using DEMO_KTLT_2021_01.BusinessServices
+@using DEMO_KTLT_2021_01.ENTITIES
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        PHANSO kq = XL_PHANSO.CongPS_TapTin();
+        Chuoi = "Ban vua nhap " + kq.TuSo + "/" + kq.MauSo;
+    }
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title></title>
+</head>
+<body>
+    <form action="~/UI/MH_CONG_PHANSO_TAPTIN.cshtml" method="post">
+        
+        <input type="submit" value="Submit"/>
+    </form>
+    @Chuoi
+</body>
+</html>

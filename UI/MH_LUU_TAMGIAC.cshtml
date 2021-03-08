@@ -1,0 +1,49 @@
+﻿@using DEMO_KTLT_2021_01.ENTITIES
+@using DEMO_KTLT_2021_01.BusinessServices
+@using DEMO_KTLT_2021_01
+
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        TAMGIAC tg;
+        tg.A.X = int.Parse(Request["x1"]);
+        tg.A.Y = int.Parse(Request["y1"]);
+        tg.B.X = int.Parse(Request["x2"]);
+        tg.B.Y = int.Parse(Request["y2"]);
+        tg.C.X = int.Parse(Request["x3"]);
+        tg.C.Y = int.Parse(Request["y3"]);
+        var kq = XL_TAMGIAC.LuuTamGiac(tg);
+
+        Chuoi = "Kết quả là " + kq;
+    }
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/UI/MH_LUU_TAMGIAC.cshtml" method="post">
+        <label for="x1">X 1:</label><br />
+        <input type="text" name="x1" value="0" /><br />
+        <label for="y1">Y 1:</label><br />
+        <input type="text" name="y1" value="0" /><br /><br />
+
+        <label for="x2">X 2:</label><br />
+        <input type="text" name="x2" value="0" /><br />
+        <label for="y2">Y 2:</label><br />
+        <input type="text" name="y2" value="1" /><br /><br />
+
+        <label for="x3">X 3:</label><br />
+        <input type="text" name="x3" value="1" /><br />
+        <label for="y3">Y 3:</label><br />
+        <input type="text" name="y3" value="0" /><br /><br />
+
+        <input type="submit" value="Lưu" />
+    </form>
+
+    @Chuoi
+</body>
+</html>

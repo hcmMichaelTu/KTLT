@@ -1,0 +1,29 @@
+﻿@using DEMO_KTLT_2021_01.ENTITIES;
+@using DEMO_KTLT_2021_01.BusinessServices; 
+
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        TAMGIAC tg;
+        tg = XL_TAMGIAC.DocTamGiac();
+        double kq = XL_TAMGIAC.TinhChuVi(tg);// Gọi hàm: TinhKhoanCach_TapTin trong Class XL_DIEM Namespace BusinessServices đã Using bên trên
+        Chuoi = "Kết quả là " + kq;
+    }
+
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/UI/MH_TINHCHUVI_TAMGIAC_TAPTIN.cshtml" method="post">
+        
+        <input type="submit" value="Submit" />
+    </form>
+
+    @Chuoi
+</body>
+</html>

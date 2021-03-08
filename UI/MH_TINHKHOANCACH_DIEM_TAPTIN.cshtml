@@ -1,0 +1,28 @@
+﻿@using DEMO_KTLT_2021_01
+@using DEMO_KTLT_2021_01.BusinessServices
+ // UI chỉ dùng Namespace: Goc, .ENTITIES, .BusinessServices
+
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        double kq = XL_DIEM.TinhKhoanCach_TapTin(); // Gọi hàm: TinhKhoanCach_TapTin trong Class XL_DIEM Namespace BusinessServices đã Using bên trên
+        Chuoi = "Kết quả là " + kq;
+    }
+
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/UI/MH_TINHKHOANCACH_DIEM_TAPTIN.cshtml" method="post">
+        
+        <input type="submit" value="Submit" />
+    </form>
+
+    @Chuoi
+</body>
+</html>

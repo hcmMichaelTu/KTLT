@@ -1,0 +1,39 @@
+﻿@using DEMO_KTLT_2021_01.ENTITIES
+@using DEMO_KTLT_2021_01.BusinessServices
+@using DEMO_KTLT_2021_01
+
+@{
+    string Chuoi = string.Empty;
+    if (IsPost)
+    {
+        DIEM A;
+        A.X = int.Parse(Request["x1"]);
+        A.Y = int.Parse(Request["y1"]);
+        
+       var kq = XL_DIEM.LuuDiem(A);
+
+        Chuoi = "Kết quả là " + kq;
+    }
+
+
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/UI/MH_LUU_DIEM.cshtml" method="post">
+        <label for="Tuso1">X 1:</label><br />
+        <input type="text" name="x1" value="0" /><br />
+        <label for="Mauso1">Y 1:</label><br />
+        <input type="text" name="y1" value="0" /><br /><br />
+
+        <br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+
+    @Chuoi
+</body>
+</html>
